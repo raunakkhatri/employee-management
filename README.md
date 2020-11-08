@@ -26,11 +26,11 @@ docker-compose up
 ```bash
 docker build . -t node_berkadia 
 ```
-#### Step 2: Create mongoDB
+#### Step 2: Deploy mongoDB
 ```bash
 kubectl apply -f mongo-deploy.yaml 
 ```
-#### Step 2: Create CRUD service
+#### Step 2: Deploy CRUD service
 ```bash
 kubectl apply -f application-deployment.yaml 
 ```
