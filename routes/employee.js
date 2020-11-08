@@ -23,7 +23,6 @@ const saveEmployee = async (req,res)=>{
 const fetchEmployee = async (req,res)=>{
     log.info(`request to fetch all the employee`);
     const sortByField = req.params.sortByField;
-    console.log(sortByField)
     await controller.fetchEmployee(sortByField)
     .then(response=>{
         log.info(`succesfully fetched all the users`);
