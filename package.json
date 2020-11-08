@@ -1,0 +1,36 @@
+{
+  "name": "berkadia-employee-nodejs",
+  "version": "1.0.0",
+  "description": "Crud application to manage empoyees",
+  "main": "server.js",
+  "scripts": {
+    "test": "export NODE_ENV=TEST && mocha --timeout 10000",
+    "coverage": "export NODE_ENV=TEST && nyc -x=test/* -x=config/* --reporter=lcov --reporter=html mocha --timeout 5000 --exit"
+  },
+  "author": "Raunak Khatri",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-joi-validation": "^5.0.0",
+    "express-mongo-sanitize": "^2.0.0",
+    "helmet": "^4.2.0",
+    "joi": "^17.3.0",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.10.12",
+    "swagger-ui-express": "^4.1.4",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "expect": "^26.6.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "nyc": "^15.1.0",
+    "should": "^13.2.3",
+    "supertest": "^6.0.1"
+  }
+}

@@ -1,0 +1,35 @@
+version: "3"
+services:
+  berkadia:
+    build: 
+      context: .
+    environment:
+      NODE_ENV: "${NODE_ENV}"
+      MONGO_USERNAME: "${DB_USER}"
+      MONGO_PASSWORD: "${DB_PASSWORD}"
+      MONGO_DATABASE: "${DB_NAME}"
+      MONGO_HOST: "${DB_HOST}"
+      MONGO_PORT: "${DB_PORT}"
+      PORT: "${APP_PORT}"
+
+    container_name: berkadiaBackend
+    ports:
+    - 3000:3000
+    depends_on:
+    - mongo
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${DB_USER}"
+      MONGO_INITDB_ROOT_PASSWORD: "${DB_PASSWORD}"
+    container_name: mongodb
+    ports:
+    - 27017:27017
+    volumes:
+    - mongodb:/data/db
+    - mongodb_config:/data/configdb
+    - logs:/logs
+volumes:
+    mongodb:
+    mongodb_config:
+    logs:

@@ -1,0 +1,281 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Employee Managment",
+      "description": "Employee managment system backend",
+      "contact": {}
+    },
+    "basePath": "/api",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/employee": {
+        "post": {
+          "description": "Register an user",
+          "summary": "Register new employee",
+          "tags": [
+            "Employee Managment"
+          ],
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+                "name": "Body",
+                "in": "body",
+                "required": true,
+                "description": "",
+                "schema": {
+                  "$ref": "#/definitions/RegisterEmployee"
+                }
+              }
+          ],
+          "responses": {
+            "200": {
+              "description": "ok"
+            },
+            "400": {
+              "description": "Bad request",
+              "headers": {}
+            }
+          }
+        },
+        "get": {
+            "description": "List employee",
+            "summary": "List employee",
+            "tags": [
+              "Employee Managment"
+            ],
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "path",
+                "name": "sortByField",
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "ok"
+              }
+            }
+          }
+      },
+      "/employee/{sortByField}":{
+        "get": {
+            "description": "List employee",
+            "summary": "List employee",
+            "tags": [
+              "Employee Managment"
+            ],
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "path",
+                "name": "sortByField",
+                "type": "string"
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "ok"
+              }
+            }
+          }
+      },
+      "/employee/{employeeId}": {
+        "put": {
+          "description": "update an user",
+          "summary": "Update existing employee",
+          "tags": [
+            "Employee Managment"
+          ],
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+                "in": "path",
+                "name": "employeeId",
+                "type": "string"
+              }, 
+            {
+                "name": "Body",
+                "in": "body",
+                "required": true,
+                "description": "",
+                "schema": {
+                  "$ref": "#/definitions/updateEmployee"
+                }
+              }
+          ],
+          "responses": {
+            "200": {
+              "description": "ok"
+            },
+            "400": {
+              "description": "Bad request",
+              "headers": {}
+            }
+          }
+        },
+        "delete": {
+            "description": "Delete an user",
+            "summary": "Delete existing employee",
+            "tags": [
+              "Employee Managment"
+            ],
+            "deprecated": false,
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                  "in": "path",
+                  "name": "employeeId",
+                  "type": "string"
+                }
+            ],
+            "responses": {
+              "200": {
+                "description": "ok"
+              },
+              "400": {
+                "description": "Bad request",
+                "headers": {}
+              },
+              "404": {
+                "description": "Does not exist",
+                "headers": {}
+              }
+            }
+          }
+      },
+      "/healthCheck": {
+        "get": {
+          "description": "A Default Api for Healthcheck purpose",
+          "summary": "healthCheck",
+          "tags": [
+            "Misc"
+          ],
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "ok"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "RegisterEmployee": {
+        "title": "Request new employee",
+        "example": {
+            "employeeId": "BK00001",
+            "firstName":"Alex",
+            "lastName": "Khatri",
+            "middleName":"Paul",
+            "gender": "M",
+            "mobileNumber": "9876343310",
+            "dateOfBirth":"12/02/1990",
+            "personalEmail":"raunakkhatri@gmail.com"
+          },
+        "type": "string",
+        "properties": {
+          "employeeId": {
+            "type": "string",
+            "required": true
+          },
+          "firstName": {
+            "type": "string",
+            "required": true
+          },
+          "lastName": {
+            "type": "string",
+            "required": true
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string",
+            "required": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "required": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "required": true
+          },
+          "personalEmail": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "updateEmployee": {
+        "title": "Update existing employee",
+        "example": {
+            "firstName":"Alex",
+            "lastName": "Khatri",
+            "middleName":"Paul",
+            "gender": "M",
+            "mobileNumber": "9876343310",
+            "dateOfBirth":"12/02/1990",
+            "personalEmail":"raunakkhatri@gmail.com"
+          },
+        "type": "string",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "mobileNumber": {
+            "type": "string"
+          },
+          "dateOfBirth": {
+            "type": "string"
+          },
+          "personalEmail": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "Misc",
+        "description": ""
+      },
+      {
+        "name": "Employee Managment",
+        "description": ""
+      }
+    ]
+  }
